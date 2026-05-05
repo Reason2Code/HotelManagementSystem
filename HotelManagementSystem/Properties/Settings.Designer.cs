@@ -26,8 +26,8 @@ namespace HotelManagementSystem.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost,1436;Initial Catalog=HotelDB;Persist Security Info=True;Use" +
-            "r ID=phu;Password=12349977SQLserver@#;")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=HotelDB;Persist Security Info=True;User ID=" +
+            "ad;Password=12345678@Aa;")]
         public string ConnectionString {
             get {
                 return ((string)(this["ConnectionString"]));
