@@ -79,13 +79,9 @@ namespace HotelManagementSystem.All_User_Controls
                 String type = txtType.Text;
                 String bed = txtBed.Text;
                 Int64 price = Int64.Parse(txtPrice.Text);
-
-                // SQL Query to update room details based on Room Number
                 query = "UPDATE rooms SET roomType = '" + type + "', bed = '" + bed + "', price = " + price + " WHERE roomNo = '" + roomno + "'";
-
                 fn.setData(query, "Room Details Updated Successfully.");
 
-                // Refresh the grid and clear fields
                 UC_AddRoom_Load(this, null);
                 clearAll();
             }
@@ -102,13 +98,9 @@ namespace HotelManagementSystem.All_User_Controls
                 if (MessageBox.Show("Are you sure you want to delete Room No: " + txtRoomNo.Text + "?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
                     String roomno = txtRoomNo.Text;
-
-                    // SQL Query to delete the room
                     query = "DELETE FROM rooms WHERE roomNo = '" + roomno + "'";
-
                     fn.setData(query, "Room Deleted.");
 
-                    // Refresh the grid and clear fields
                     UC_AddRoom_Load(this, null);
                     clearAll();
                 }
