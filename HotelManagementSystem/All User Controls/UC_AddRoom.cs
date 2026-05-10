@@ -71,6 +71,46 @@ namespace HotelManagementSystem.All_User_Controls
                 MessageBox.Show("All Fields are mandatory", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+        private void btnEditRoom_Click(object sender, EventArgs e)
+        {
+            if (txtRoomNo.Text != "" && txtType.Text != "" && txtBed.Text != "" && txtPrice.Text != "")
+            {
+                String roomno = txtRoomNo.Text;
+                String type = txtType.Text;
+                String bed = txtBed.Text;
+                Int64 price = Int64.Parse(txtPrice.Text);
+                query = "UPDATE rooms SET roomType = '" + type + "', bed = '" + bed + "', price = " + price + " WHERE roomNo = '" + roomno + "'";
+                fn.setData(query, "Room Details Updated Successfully.");
+
+                UC_AddRoom_Load(this, null);
+                clearAll();
+            }
+            else
+            {
+                MessageBox.Show("Please select a room and fill all fields.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnDeleteRoom_Click(object sender, EventArgs e)
+        {
+            if (txtRoomNo.Text != "")
+            {
+                if (MessageBox.Show("Are you sure you want to delete Room No: " + txtRoomNo.Text + "?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    String roomno = txtRoomNo.Text;
+                    query = "DELETE FROM rooms WHERE roomNo = '" + roomno + "'";
+                    fn.setData(query, "Room Deleted.");
+
+                    UC_AddRoom_Load(this, null);
+                    clearAll();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please enter or select a Room Number to delete.", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
         public void clearAll()
         {
             txtRoomNo.Clear();
