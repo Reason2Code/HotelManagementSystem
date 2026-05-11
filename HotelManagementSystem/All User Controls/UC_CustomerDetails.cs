@@ -26,24 +26,21 @@ namespace HotelManagementSystem.All_User_Controls
 
         private void txtSearchBy_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Common part of the query to keep your code clean
             string baseQuery = "select customer.cid, customer.cName, customer.mobile, customer.nationality, customer.gender, customer.dob, customer.idproof, customer.addres, customer.checkin, customer.chekout, rooms.roomNo, rooms.roomType, rooms.bed, rooms.price from customer inner join rooms on customer.roomid = rooms.roomid";
 
             if (txtSearchBy.SelectedIndex == 0) 
             {
                 query = baseQuery;
-                getRecords(query);
             }
             else if (txtSearchBy.SelectedIndex == 1) 
             {
                 query = baseQuery + " where customer.chekout = 'No'";
-                getRecords(query);
             }
             else if (txtSearchBy.SelectedIndex == 2) 
             {
                 query = baseQuery + " where customer.chekout = 'YES'";
-                getRecords(query);
             }
+            getRecords(query);
         }
         private void getRecords(String displayQuery) 
         {

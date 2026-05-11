@@ -15,6 +15,7 @@ namespace HotelManagementSystem.All_User_Controls
     {
         Function fn = new Function();
         String query;
+        Int64 employeeID;
         public UC_Employee()
         {
             InitializeComponent();
@@ -46,25 +47,6 @@ namespace HotelManagementSystem.All_User_Controls
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            //if (txtName.Text != "" && txtMobile.Text != "" && txtGender.Text != "" && txtEmail.Text != "" && txtUser.Text != "" && txtPassword.Text != "")
-            //{
-            //    String name = txtName.Text;
-            //    Int64 mobile = Int64.Parse(txtMobile.Text);
-            //    String gender = txtGender.Text;
-            //    String email = txtEmail.Text;
-            //    String userName = txtUser.Text;
-            //    String password = txtPassword.Text;
-
-            //    query = "insert into employee(ename, mobile, gender, emailid, username, pass) values('" + name + "', "+ mobile +", '" + gender + "', '" + email + "', '" + userName + "', '" + password + "')";
-            //    fn.setData(query, "Employee Registered Successfully");
-            //    clearAll();
-            //    getMaximiumID();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("All Fields are Mandatory", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //}
-
             if (txtName.Text == "" || txtUser.Text == "" || txtPassword.Text == "")
             {
                 MessageBox.Show("Name, Username, and Password are required fields.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -72,6 +54,8 @@ namespace HotelManagementSystem.All_User_Controls
             }
 
             Int64 mobileNumber = 0;
+            Int64.TryParse(txtMobile.Text, out mobileNumber);
+
             if (txtMobile.Text != "" && !Int64.TryParse(txtMobile.Text, out mobileNumber))
             {
                 MessageBox.Show("Please enter a valid numeric mobile number.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -85,12 +69,12 @@ namespace HotelManagementSystem.All_User_Controls
             // 2. Create the array of parameters mapping to your text boxes
             SqlParameter[] parameters = new SqlParameter[]
             {
-        new SqlParameter("@ename", txtName.Text),
-        new SqlParameter("@mobile", mobileNumber == 0 ? (object)DBNull.Value : mobileNumber),
-        new SqlParameter("@gender", txtGender.Text),
-        new SqlParameter("@emailid", txtEmail.Text),
-        new SqlParameter("@username", txtUser.Text),
-        new SqlParameter("@pass", txtPassword.Text)
+                new SqlParameter("@ename", txtName.Text),
+                new SqlParameter("@mobile", mobileNumber == 0 ? (object)DBNull.Value : mobileNumber),
+                new SqlParameter("@gender", txtGender.Text),
+                new SqlParameter("@emailid", txtEmail.Text),
+                new SqlParameter("@username", txtUser.Text),
+                new SqlParameter("@pass", txtPassword.Text)
             };
 
             // 3. Send it to your new, upgraded setData method!
@@ -107,29 +91,20 @@ namespace HotelManagementSystem.All_User_Controls
 
         private void tabEmployeeDetails_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tabEmployeeDetails.SelectedIndex == 1)
-            {
-                getEmployeeDetails(guna2DataGridView1);
-            }
-            else if (tabEmployeeDetails.SelectedIndex == 2)
-            {
-                getEmployeeDetails(guna2DataGridView2);
-            }
+            if (tabEmployeeDetails.SelectedIndex == 1) getEmployeeDetails(guna2DataGridView1);
+            else if (tabEmployeeDetails.SelectedIndex == 2) getEmployeeDetails(guna2DataGridView2);
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (txtID.Text != "")
             {
-                if (MessageBox.Show("Are you sure you want to Fire this Employee?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MessageBox.Show("Are you sure?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     query = "delete from employee where eid =" + txtID.Text + "";
-                    fn.setData(query, "Fired Sucessfully");
+                    fn.setData(query, "Employee deleted successfully.");
                     tabEmployeeDetails_SelectedIndexChanged(this, null);
+                    clearAll();
                 }
-            }
-            else
-            {
-                MessageBox.Show("Select an Employee ID to Fire", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         private void UC_Employee_Leave(object sender, EventArgs e)
@@ -180,7 +155,17 @@ namespace HotelManagementSystem.All_User_Controls
 
         private void guna2DataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            if (e.RowIndex >= 0)
+            {
+                employeeID = Int64.Parse(guna2DataGridView2.Rows[e.RowIndex].Cells[0].Value.ToString());
+                txtName.Text = guna2DataGridView2.Rows[e.RowIndex].Cells[1].Value.ToString();
+                txtMobile.Text = guna2DataGridView2.Rows[e.RowIndex].Cells[2].Value.ToString();
+                txtGender.Text = guna2DataGridView2.Rows[e.RowIndex].Cells[3].Value.ToString();
+                txtEmail.Text = guna2DataGridView2.Rows[e.RowIndex].Cells[4].Value.ToString();
+                txtUser.Text = guna2DataGridView2.Rows[e.RowIndex].Cells[5].Value.ToString();
+                txtPassword.Text = guna2DataGridView2.Rows[e.RowIndex].Cells[6].Value.ToString();
+                txtID.Text = employeeID.ToString();
+            }
         }
 
         private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -190,7 +175,33 @@ namespace HotelManagementSystem.All_User_Controls
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            
+
+        }
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (txtName.Text != "" && txtUser.Text != "" && txtPassword.Text != "")
+            {
+                string updateQuery = "UPDATE employee SET ename=@ename, mobile=@mobile, gender=@gender, emailid=@emailid, username=@username, pass=@pass WHERE eid=@eid";
+
+                SqlParameter[] parameters = new SqlParameter[]
+                {
+                    new SqlParameter("@ename", txtName.Text),
+                    new SqlParameter("@mobile", string.IsNullOrEmpty(txtMobile.Text) ? (object)DBNull.Value : Int64.Parse(txtMobile.Text)),
+                    new SqlParameter("@gender", txtGender.Text),
+                    new SqlParameter("@emailid", txtEmail.Text),
+                    new SqlParameter("@username", txtUser.Text),
+                    new SqlParameter("@pass", txtPassword.Text),
+                    new SqlParameter("@eid", employeeID)
+                };
+
+                fn.setData(updateQuery, "Employee updated successfully!", parameters);
+                tabEmployeeDetails_SelectedIndexChanged(this, null);
+                clearAll();
+            }
+            else
+            {
+                MessageBox.Show("Please complete all required fields", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }
