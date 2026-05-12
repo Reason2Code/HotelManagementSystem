@@ -225,5 +225,10 @@ namespace HotelManagementSystem.All_User_Controls
                 MessageBox.Show("Please complete all required fields", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

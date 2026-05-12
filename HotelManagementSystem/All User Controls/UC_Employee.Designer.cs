@@ -67,7 +67,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.guna2DataGridView3 = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.btnUpdate = new Guna.UI2.WinForms.Guna2Button();
             this.txtUpdatePassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.label25 = new System.Windows.Forms.Label();
             this.txtUpdateUser = new Guna.UI2.WinForms.Guna2TextBox();
@@ -83,6 +82,8 @@
             this.txtUpdateID = new Guna.UI2.WinForms.Guna2TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
+            this.btnUpdate = new Guna.UI2.WinForms.Guna2Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.tabEmployeeDetails.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -590,7 +591,9 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.label3);
             this.tabPage4.Controls.Add(this.guna2DataGridView3);
+            this.tabPage4.Controls.Add(this.btnUpdate);
             this.tabPage4.Controls.Add(this.txtUpdatePassword);
             this.tabPage4.Controls.Add(this.label25);
             this.tabPage4.Controls.Add(this.txtUpdateUser);
@@ -647,7 +650,7 @@
             this.guna2DataGridView3.RowHeadersVisible = false;
             this.guna2DataGridView3.RowHeadersWidth = 82;
             this.guna2DataGridView3.RowTemplate.Height = 24;
-            this.guna2DataGridView3.Size = new System.Drawing.Size(933, 178);
+            this.guna2DataGridView3.Size = new System.Drawing.Size(933, 173);
             this.guna2DataGridView3.TabIndex = 30;
             this.guna2DataGridView3.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView3.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -672,27 +675,6 @@
             this.guna2DataGridView3.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.guna2DataGridView3.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DataGridView3_CellContentClick);
             // 
-            // btnUpdate
-            // 
-            this.btnUpdate.BorderRadius = 18;
-            this.btnUpdate.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.btnUpdate.BorderThickness = 1;
-            this.btnUpdate.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.ToogleButton;
-            this.btnUpdate.CheckedState.FillColor = System.Drawing.Color.White;
-            this.btnUpdate.CheckedState.ForeColor = System.Drawing.Color.Gray;
-            this.btnUpdate.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.HoverState.FillColor = System.Drawing.Color.White;
-            this.btnUpdate.HoverState.Font = new System.Drawing.Font("Algerian", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.btnUpdate.Location = new System.Drawing.Point(1124, 558);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(180, 58);
-            this.btnUpdate.TabIndex = 48;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            // 
             // txtUpdatePassword
             // 
             this.txtUpdatePassword.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -705,13 +687,13 @@
             this.txtUpdatePassword.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUpdatePassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtUpdatePassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtUpdatePassword.Location = new System.Drawing.Point(581, 433);
+            this.txtUpdatePassword.Location = new System.Drawing.Point(676, 253);
             this.txtUpdatePassword.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtUpdatePassword.Name = "txtUpdatePassword";
             this.txtUpdatePassword.PasswordChar = '*';
             this.txtUpdatePassword.PlaceholderText = "Enter Password";
             this.txtUpdatePassword.SelectedText = "";
-            this.txtUpdatePassword.Size = new System.Drawing.Size(411, 44);
+            this.txtUpdatePassword.Size = new System.Drawing.Size(254, 36);
             this.txtUpdatePassword.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.txtUpdatePassword.TabIndex = 47;
             // 
@@ -737,12 +719,12 @@
             this.txtUpdateUser.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUpdateUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtUpdateUser.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtUpdateUser.Location = new System.Drawing.Point(581, 433);
+            this.txtUpdateUser.Location = new System.Drawing.Point(381, 428);
             this.txtUpdateUser.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtUpdateUser.Name = "txtUpdateUser";
             this.txtUpdateUser.PlaceholderText = "Enter Username";
             this.txtUpdateUser.SelectedText = "";
-            this.txtUpdateUser.Size = new System.Drawing.Size(411, 44);
+            this.txtUpdateUser.Size = new System.Drawing.Size(269, 44);
             this.txtUpdateUser.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.txtUpdateUser.TabIndex = 45;
             // 
@@ -750,7 +732,7 @@
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(577, 406);
+            this.label24.Location = new System.Drawing.Point(377, 401);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(104, 29);
             this.label24.TabIndex = 44;
@@ -770,10 +752,10 @@
             "Male",
             "Female",
             "Custom"});
-            this.txtUpdateGender.Location = new System.Drawing.Point(581, 258);
+            this.txtUpdateGender.Location = new System.Drawing.Point(381, 253);
             this.txtUpdateGender.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtUpdateGender.Name = "txtUpdateGender";
-            this.txtUpdateGender.Size = new System.Drawing.Size(409, 36);
+            this.txtUpdateGender.Size = new System.Drawing.Size(267, 36);
             this.txtUpdateGender.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.txtUpdateGender.TabIndex = 43;
             // 
@@ -789,12 +771,12 @@
             this.txtUpdateEmail.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUpdateEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtUpdateEmail.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtUpdateEmail.Location = new System.Drawing.Point(581, 347);
+            this.txtUpdateEmail.Location = new System.Drawing.Point(381, 342);
             this.txtUpdateEmail.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtUpdateEmail.Name = "txtUpdateEmail";
             this.txtUpdateEmail.PlaceholderText = "Enter Email Address";
             this.txtUpdateEmail.SelectedText = "";
-            this.txtUpdateEmail.Size = new System.Drawing.Size(411, 44);
+            this.txtUpdateEmail.Size = new System.Drawing.Size(269, 44);
             this.txtUpdateEmail.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.txtUpdateEmail.TabIndex = 42;
             // 
@@ -810,12 +792,12 @@
             this.txtUpdateMobile.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUpdateMobile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtUpdateMobile.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtUpdateMobile.Location = new System.Drawing.Point(59, 433);
+            this.txtUpdateMobile.Location = new System.Drawing.Point(59, 428);
             this.txtUpdateMobile.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtUpdateMobile.Name = "txtUpdateMobile";
             this.txtUpdateMobile.PlaceholderText = "Enter mobile number";
             this.txtUpdateMobile.SelectedText = "";
-            this.txtUpdateMobile.Size = new System.Drawing.Size(424, 44);
+            this.txtUpdateMobile.Size = new System.Drawing.Size(282, 44);
             this.txtUpdateMobile.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.txtUpdateMobile.TabIndex = 41;
             // 
@@ -831,12 +813,12 @@
             this.txtUpdateName.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUpdateName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtUpdateName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtUpdateName.Location = new System.Drawing.Point(59, 344);
+            this.txtUpdateName.Location = new System.Drawing.Point(59, 339);
             this.txtUpdateName.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtUpdateName.Name = "txtUpdateName";
             this.txtUpdateName.PlaceholderText = "Enter name";
             this.txtUpdateName.SelectedText = "";
-            this.txtUpdateName.Size = new System.Drawing.Size(424, 44);
+            this.txtUpdateName.Size = new System.Drawing.Size(282, 44);
             this.txtUpdateName.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.txtUpdateName.TabIndex = 40;
             // 
@@ -844,7 +826,7 @@
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(577, 320);
+            this.label23.Location = new System.Drawing.Point(377, 315);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(139, 29);
             this.label23.TabIndex = 39;
@@ -854,7 +836,7 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(577, 231);
+            this.label22.Location = new System.Drawing.Point(377, 226);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(79, 29);
             this.label22.TabIndex = 38;
@@ -864,7 +846,7 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(55, 406);
+            this.label21.Location = new System.Drawing.Point(55, 401);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(146, 29);
             this.label21.TabIndex = 37;
@@ -874,7 +856,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(55, 317);
+            this.label20.Location = new System.Drawing.Point(55, 312);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(65, 29);
             this.label20.TabIndex = 36;
@@ -892,13 +874,13 @@
             this.txtUpdateID.Font = new System.Drawing.Font("Algerian", 10.8F);
             this.txtUpdateID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtUpdateID.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtUpdateID.Location = new System.Drawing.Point(59, 258);
+            this.txtUpdateID.Location = new System.Drawing.Point(59, 253);
             this.txtUpdateID.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtUpdateID.Name = "txtUpdateID";
             this.txtUpdateID.PlaceholderText = "Employee ID";
             this.txtUpdateID.ReadOnly = true;
             this.txtUpdateID.SelectedText = "";
-            this.txtUpdateID.Size = new System.Drawing.Size(424, 44);
+            this.txtUpdateID.Size = new System.Drawing.Size(282, 44);
             this.txtUpdateID.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.txtUpdateID.TabIndex = 35;
             // 
@@ -906,7 +888,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(55, 231);
+            this.label19.Location = new System.Drawing.Point(55, 226);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(31, 29);
             this.label19.TabIndex = 34;
@@ -922,17 +904,48 @@
             this.label18.TabIndex = 31;
             this.label18.Text = "Select an employee below to modify details";
             // 
+            // btnUpdate
+            // 
+            this.btnUpdate.BorderRadius = 18;
+            this.btnUpdate.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.btnUpdate.BorderThickness = 1;
+            this.btnUpdate.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.ToogleButton;
+            this.btnUpdate.CheckedState.FillColor = System.Drawing.Color.White;
+            this.btnUpdate.CheckedState.ForeColor = System.Drawing.Color.Gray;
+            this.btnUpdate.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.ForeColor = System.Drawing.Color.White;
+            this.btnUpdate.HoverState.FillColor = System.Drawing.Color.White;
+            this.btnUpdate.HoverState.Font = new System.Drawing.Font("Algerian", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.btnUpdate.Location = new System.Drawing.Point(762, 361);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(180, 58);
+            this.btnUpdate.TabIndex = 48;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(671, 226);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(101, 29);
+            this.label3.TabIndex = 49;
+            this.label3.Text = "Password";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
             // UC_Employee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.tabEmployeeDetails);
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "UC_Employee";
-            this.Size = new System.Drawing.Size(1407, 649);
+            this.Size = new System.Drawing.Size(1147, 649);
             this.Load += new System.EventHandler(this.UC_Employee_Load);
             this.Leave += new System.EventHandler(this.UC_Employee_Leave);
             this.tabEmployeeDetails.ResumeLayout(false);
@@ -983,7 +996,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txtID;
         private System.Windows.Forms.Label label11;
         private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView3;
-        private Guna.UI2.WinForms.Guna2Button btnUpdate;
         private Guna.UI2.WinForms.Guna2TextBox txtUpdatePassword;
         private System.Windows.Forms.Label label25;
         private Guna.UI2.WinForms.Guna2TextBox txtUpdateUser;
@@ -999,5 +1011,7 @@
         private Guna.UI2.WinForms.Guna2TextBox txtUpdateID;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
+        private Guna.UI2.WinForms.Guna2Button btnUpdate;
+        private System.Windows.Forms.Label label3;
     }
 }
