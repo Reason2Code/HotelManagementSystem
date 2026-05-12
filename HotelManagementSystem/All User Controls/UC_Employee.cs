@@ -93,6 +93,7 @@ namespace HotelManagementSystem.All_User_Controls
         {
             if (tabEmployeeDetails.SelectedIndex == 1) getEmployeeDetails(guna2DataGridView1);
             else if (tabEmployeeDetails.SelectedIndex == 2) getEmployeeDetails(guna2DataGridView2);
+            else if (tabEmployeeDetails.SelectedIndex == 3) getEmployeeDetails(guna2DataGridView3);
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {
@@ -168,6 +169,21 @@ namespace HotelManagementSystem.All_User_Controls
             }
         }
 
+        private void guna2DataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                employeeID = Int64.Parse(guna2DataGridView3.Rows[e.RowIndex].Cells[0].Value.ToString());
+                txtUpdateID.Text = guna2DataGridView3.Rows[e.RowIndex].Cells[0].Value.ToString();
+                txtUpdateName.Text = guna2DataGridView3.Rows[e.RowIndex].Cells[1].Value.ToString();
+                txtUpdateMobile.Text = guna2DataGridView3.Rows[e.RowIndex].Cells[2].Value.ToString();
+                txtUpdateGender.Text = guna2DataGridView3.Rows[e.RowIndex].Cells[3].Value.ToString();
+                txtUpdateEmail.Text = guna2DataGridView3.Rows[e.RowIndex].Cells[4].Value.ToString();
+                txtUpdateUser.Text = guna2DataGridView3.Rows[e.RowIndex].Cells[5].Value.ToString();
+                txtUpdatePassword.Text = guna2DataGridView3.Rows[e.RowIndex].Cells[6].Value.ToString();
+            }
+        }
+
         private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -179,24 +195,30 @@ namespace HotelManagementSystem.All_User_Controls
         }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (txtName.Text != "" && txtUser.Text != "" && txtPassword.Text != "")
+            if (txtUpdateName.Text != "" && txtUpdateUser.Text != "" && txtUpdatePassword.Text != "")
             {
                 string updateQuery = "UPDATE employee SET ename=@ename, mobile=@mobile, gender=@gender, emailid=@emailid, username=@username, pass=@pass WHERE eid=@eid";
 
                 SqlParameter[] parameters = new SqlParameter[]
                 {
-                    new SqlParameter("@ename", txtName.Text),
-                    new SqlParameter("@mobile", string.IsNullOrEmpty(txtMobile.Text) ? (object)DBNull.Value : Int64.Parse(txtMobile.Text)),
-                    new SqlParameter("@gender", txtGender.Text),
-                    new SqlParameter("@emailid", txtEmail.Text),
-                    new SqlParameter("@username", txtUser.Text),
-                    new SqlParameter("@pass", txtPassword.Text),
+                    new SqlParameter("@ename", txtUpdateName.Text),
+                    new SqlParameter("@mobile", string.IsNullOrEmpty(txtUpdateMobile.Text) ? (object)DBNull.Value : Int64.Parse(txtUpdateMobile.Text)),
+                    new SqlParameter("@gender", txtUpdateGender.Text),
+                    new SqlParameter("@emailid", txtUpdateEmail.Text),
+                    new SqlParameter("@username", txtUpdateUser.Text),
+                    new SqlParameter("@pass", txtUpdatePassword.Text),
                     new SqlParameter("@eid", employeeID)
                 };
 
                 fn.setData(updateQuery, "Employee updated successfully!", parameters);
                 tabEmployeeDetails_SelectedIndexChanged(this, null);
-                clearAll();
+                txtUpdateName.Clear();
+                txtUpdateMobile.Clear();
+                txtUpdateGender.SelectedIndex = -1;
+                txtUpdateEmail.Clear();
+                txtUpdateUser.Clear();
+                txtUpdatePassword.Clear();
+                txtUpdateID.Clear();
             }
             else
             {
